@@ -8,6 +8,6 @@ class Post(models.Model):
     draft = models.BooleanField()
     publish_date = models.DateTimeField(auto_now=True)
     tags = TaggableManager()
-
+    image = models.ImageField()
     def __str__(self):
         return f'{self.title} {self.id}'
