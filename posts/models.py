@@ -1,4 +1,5 @@
 from django.db import models
+from taggit.managers import TaggableManager
 
 
 class Post(models.Model):
@@ -6,5 +7,7 @@ class Post(models.Model):
     content  = models.TextField(max_length=2000)
     draft = models.BooleanField()
     publish_date = models.DateTimeField(auto_now=True)
+    tags = TaggableManager()
+
     def __str__(self):
         return f'{self.title} {self.id}'
