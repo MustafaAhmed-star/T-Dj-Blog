@@ -1,1 +1,5 @@
-# T-Dj-Blog-
+# T-Dj-Blog
+### - - - - ___ - - - - 
+#### CRUD 
+   - FBV
+   - CBV
