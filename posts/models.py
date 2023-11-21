@@ -10,7 +10,7 @@ class Post(models.Model):
     publish_date = models.DateTimeField(auto_now=True)
     tags = TaggableManager()
     image = models.ImageField(default ='1.png')
-    
+    category = models.ForeignKey("Category",  on_delete=models.SET_NULL , null = True)
     
     def __str__(self):
         return f'{self.title} {self.id}'
