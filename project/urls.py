@@ -7,6 +7,7 @@ from posts import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('posts/',views.post_list),
+    path('posts/<int:pk>',views.post_detail),
 ]
 if settings.DEBUG:
     urlpatterns+=static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
