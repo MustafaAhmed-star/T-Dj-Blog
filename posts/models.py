@@ -9,7 +9,7 @@ class Post(models.Model):
     draft = models.BooleanField()
     publish_date = models.DateTimeField(auto_now=True)
     tags = TaggableManager()
-    image = models.ImageField(default ='1.png')
+    image = models.ImageField(upload_to='post',default ='1.png')
     category = models.ForeignKey("Category",  on_delete=models.SET_NULL , null = True)
     
     def __str__(self):
