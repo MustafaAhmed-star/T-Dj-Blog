@@ -6,8 +6,8 @@ from django.conf.urls.static import static
 from posts import views
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('posts/',views.post_list),
-    path('posts/<int:pk>',views.post_detail),
+    path('posts/',views.PostList.as_view()),
+    path('posts/<int:pk>',views.PostDetail.as_view()),
     path('summernote/', include('django_summernote.urls')),
 ]
 if settings.DEBUG:
