@@ -16,9 +16,13 @@ def post_detail(request,pk):
     
     }
     return render(request,'posts/post_detail.html',context)
-# def post_create(request):
-#     form = PostForm()
-#     return render(request,'posts/post_create.html',{'form':form})
+def post_create(request):
+    if request.method == 'POST':
+        form = PostForm(request.POST)
+        if form.is_valid():
+            form.save()
+    form = PostForm()
+    return render(request,'posts/post_create.html',{'form':form})
 class PostList(generic.ListView):
     model = Post    
 class PostDetail(generic.DetailView):
