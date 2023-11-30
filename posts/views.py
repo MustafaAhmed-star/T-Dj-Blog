@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from .models import Post
 from django.views import generic
 from .forms import PostForm
@@ -24,6 +24,7 @@ def post_create(request):
           myform =  form.save(commit = False)
           myform.author = request.user
           myform.save()
+          return redirect('/posts/')
     form = PostForm()
     return render(request,'posts/post_form.html',{'form':form})
 class PostList(generic.ListView):
