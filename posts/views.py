@@ -22,8 +22,13 @@ def post_create(request):
         if form.is_valid():
             form.save()
     form = PostForm()
-    return render(request,'posts/post_create.html',{'form':form})
+    return render(request,'posts/post_form.html',{'form':form})
 class PostList(generic.ListView):
     model = Post    
 class PostDetail(generic.DetailView):
     model = Post
+
+class PostCreate(generic.CreateView):
+    model = Post
+    form_class = PostForm
+    success_url = '/posts/'
