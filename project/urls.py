@@ -11,6 +11,7 @@ urlpatterns = [
     path('posts/created/',views.post_create),
 
     path('posts/<int:pk>',views.PostDetail.as_view()),
+    path('posts/edit/<int:pk>',views.post_edit),
     path('summernote/', include('django_summernote.urls')),
 ]
 if settings.DEBUG:

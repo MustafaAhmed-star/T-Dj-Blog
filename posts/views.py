@@ -27,6 +27,22 @@ def post_create(request):
           return redirect('/posts/')
     form = PostForm()
     return render(request,'posts/post_form.html',{'form':form})
+def post_edit(request,pk):
+    post = Post.objects.get(pk=pk)
+    if request.method == 'POST':
+        form = PostForm(request.POST,request.FILES,instance = post)
+        
+        if form.is_valid():
+          myform =  form.save(commit = False)
+          myform.author = request.user
+          myform.save()
+          return redirect('/posts/')
+    form = PostForm(instance = post)
+    return render(request,'posts/post_edit.html',{'form':form})    
+    
+    
+    
+    
 class PostList(generic.ListView):
     model = Post    
 class PostDetail(generic.DetailView):
@@ -36,3 +52,4 @@ class PostCreate(generic.CreateView):
     model = Post
     form_class = PostForm
     success_url = '/posts/'
+    
