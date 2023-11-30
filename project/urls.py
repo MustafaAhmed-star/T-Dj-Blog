@@ -8,6 +8,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('posts/',views.PostList.as_view()),
     path('posts/create/',views.PostCreate.as_view()),
+    path('posts/created/',views.post_create),
 
     path('posts/<int:pk>',views.PostDetail.as_view()),
     path('summernote/', include('django_summernote.urls')),

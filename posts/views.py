@@ -18,9 +18,12 @@ def post_detail(request,pk):
     return render(request,'posts/post_detail.html',context)
 def post_create(request):
     if request.method == 'POST':
-        form = PostForm(request.POST)
+        form = PostForm(request.POST,request.FILES)
+        
         if form.is_valid():
-            form.save()
+          myform =  form.save(commit = False)
+          myform.author = request.user
+          myform.save()
     form = PostForm()
     return render(request,'posts/post_form.html',{'form':form})
 class PostList(generic.ListView):
