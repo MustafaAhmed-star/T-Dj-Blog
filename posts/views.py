@@ -36,7 +36,7 @@ def post_edit(request,pk):
           myform =  form.save(commit = False)
           myform.author = request.user
           myform.save()
-          return redirect('/posts/{pk}')
+          return redirect('/posts/')
     form = PostForm(instance = post)
     return render(request,'posts/post_edit.html',{'form':form})    
 def post_delete(request,pk):
