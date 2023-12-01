@@ -56,3 +56,6 @@ class PostCreate(generic.CreateView):
     form_class = PostForm
     success_url = '/posts/'
     
+class PostDelete(generic.DeleteView):
+    model = Post
+    success_url = '/'
