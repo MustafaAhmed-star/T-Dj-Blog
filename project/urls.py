@@ -4,18 +4,24 @@ from django.urls import include, path
 from django.conf import settings
 from django.conf.urls.static import static
 from posts import views
+from posts import api
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('posts/',views.PostList.as_view()),
     path('posts/created/',views.post_create),
     path('posts/edit/<int:pk>/',views.post_edit),
-    path('posts/deleted/<int:pk>/',views.post_delete),
+    path('posts/deleted/<int:pk>/',views.post_delete), 
+    
+    path('api-auth/', include('rest_framework.urls')),
+
     
     path('posts/create/',views.PostCreate.as_view()),
     path('posts/<int:pk>/',views.PostDetail.as_view()),
     
     path('posts/delete/<int:pk>/',views.PostDelete.as_view()),
     path('summernote/', include('django_summernote.urls')),
+    path('posts/api/',api.postListApi)
 ]
 if settings.DEBUG:
     urlpatterns+=static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
