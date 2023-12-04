@@ -1,4 +1,4 @@
-from django import serializers
+from rest_framework import serializers
 from .models import Post
 
 
@@ -7,7 +7,7 @@ from .models import Post
 
 
 
-class PostSerializer(serializers.ModelSerializers):
+class PostSerializer(serializers.ModelSerializer):
     class Meta:
         model  = Post
         exclude = ['publish_date','author',]
