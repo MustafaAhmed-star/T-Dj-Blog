@@ -2,6 +2,7 @@ from django.shortcuts import redirect, render
 from .models import Comment, Post
 from django.views import generic
 from .forms import PostForm
+
 # Create your views here.
 def post_list(request):
     posts = Post.objects.all()

@@ -3,7 +3,8 @@ from .serializers import PostSerializer
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from rest_framework import generics
-
+from django_filters.rest_framework import DjangoFilterBackend
+ 
 '''
 @api_view(['GET'])
 def postListApi(request):
@@ -20,6 +21,10 @@ def postDetailApi(request,pk):
 class PostListApi(generics.ListAPIView):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
+    filter_backends = [DjangoFilterBackend]
+    filterset_fields = ['category',]
+
+
 class PostDetailApi(generics.RetrieveAPIView):
     queryset = Post
     serializer_class = PostSerializer
