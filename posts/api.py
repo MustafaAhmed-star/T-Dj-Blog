@@ -4,6 +4,7 @@ from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from rest_framework import generics
 from django_filters.rest_framework import DjangoFilterBackend
+from rest_framework import filters
  
 '''
 @api_view(['GET'])
@@ -21,8 +22,10 @@ def postDetailApi(request,pk):
 class PostListApi(generics.ListAPIView):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
-    filter_backends = [DjangoFilterBackend]
-    filterset_fields = ['category',]
+    #filter_backends = [DjangoFilterBackend]
+    #filterset_fields = ['category',]
+    filter_backends = [filters.SearchFilter]
+    search_fields = ['title',]
 
 
 class PostDetailApi(generics.RetrieveAPIView):
