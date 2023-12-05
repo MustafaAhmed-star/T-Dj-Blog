@@ -18,9 +18,12 @@ def postDetailApi(request,pk):
     return Response(serializer.data)
 '''
 class PostListApi(generics.ListAPIView):
-    queryset = Post
+    queryset = Post.objects.all()
     serializer_class = PostSerializer
 class PostDetailApi(generics.RetrieveAPIView):
     queryset = Post
     serializer_class = PostSerializer
-    
+   
+class PostRUDapi(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Post
+    serializer_class = PostSerializer

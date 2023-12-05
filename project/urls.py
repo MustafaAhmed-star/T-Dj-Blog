@@ -23,6 +23,7 @@ urlpatterns = [
    # path('posts/api/',api.postListApi),
     path('posts/api/',api.PostListApi.as_view()),
     path('posts/api/<int:pk>/',api.PostDetailApi.as_view()),
+    path('posts/api/RUD/<int:pk>/',api.PostRUDapi.as_view()),
     #path('posts/api/<int:pk>/',api.postDetailApi),
 ]
 if settings.DEBUG:
