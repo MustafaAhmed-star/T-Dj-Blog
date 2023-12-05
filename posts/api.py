@@ -9,7 +9,7 @@ def postListApi(request):
     serializer = PostSerializer(posts,many = True)
     return Response(serializer.data)
 
-@api_view(['GET'])
+@api_view(['GET',])
 def postDetailApi(request,pk):
     post = Post.objects.get(pk=pk)
     serializer = PostSerializer(post)
