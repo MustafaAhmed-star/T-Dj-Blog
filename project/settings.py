@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'taggit',
     'posts',
     'rest_framework',
+    'drf_yasg',
+
     
 
 ]
