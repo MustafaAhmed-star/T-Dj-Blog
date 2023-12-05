@@ -14,7 +14,6 @@ urlpatterns = [
     path('posts/deleted/<int:pk>/',views.post_delete), 
     
     path('api-auth/', include('rest_framework.urls')),
-
     
     path('posts/create/',views.PostCreate.as_view()),
     path('posts/<int:pk>/',views.PostDetail.as_view()),

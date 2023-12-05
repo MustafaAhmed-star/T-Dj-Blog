@@ -8,3 +8,9 @@ def postListApi(request):
     posts = Post.objects.all()
     serializer = PostSerializer(posts,many = True)
     return Response(serializer.data)
+
+@api_view(['GET'])
+def postDetailApi(request,pk):
+    post = Post.objects.get(pk=pk)
+    serializer = PostSerializer(post)
+    return Response(serializer.data)
