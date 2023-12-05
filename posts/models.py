@@ -3,7 +3,7 @@ from taggit.managers import TaggableManager
 from django.contrib.auth.models import User
 
 class Post(models.Model):
-    author = models.ForeignKey(User,related_name='post_author' ,on_delete=models.CASCADE)
+    author = models.ForeignKey(User,related_name='post_author' ,on_delete=models.CASCADE,null = True)
     title = models.CharField(max_length=200)
     content  = models.TextField(max_length=2000)# I can add TextField without max_length
     draft = models.BooleanField()

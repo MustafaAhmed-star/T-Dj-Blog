@@ -27,3 +27,8 @@ class PostDetailApi(generics.RetrieveAPIView):
 class PostRUDapi(generics.RetrieveUpdateDestroyAPIView):
     queryset = Post
     serializer_class = PostSerializer
+    
+    
+class PostCreateApi(generics.CreateAPIView):
+    queryset = Post
+    serializer_class = PostSerializer 
