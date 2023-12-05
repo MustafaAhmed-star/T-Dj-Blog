@@ -20,8 +20,9 @@ urlpatterns = [
     
     path('posts/delete/<int:pk>/',views.PostDelete.as_view()),
     path('summernote/', include('django_summernote.urls')),
-    path('posts/api/',api.postListApi),
-    path('posts/api/<int:pk>/',api.postDetailApi),
+   # path('posts/api/',api.postListApi),
+    path('posts/api/',api.postListApi.as_view()),
+    #path('posts/api/<int:pk>/',api.postDetailApi),
 ]
 if settings.DEBUG:
     urlpatterns+=static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
